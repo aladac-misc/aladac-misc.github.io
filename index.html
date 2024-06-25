@@ -63,8 +63,8 @@
     }
 
     body {
-      align-items: center;
-      background-color: #000000;
+      padding-top: 2em;
+      background-color: rgb(35 32 32);
       display: flex;
       font-family: -apple-system,
         BlinkMacSystemFont,
@@ -78,7 +78,7 @@
     }
 
     .container {
-      color: #333;
+      color: rgb( 176 69 54);
       margin: 0 auto;
       text-align: center;
     }
@@ -102,16 +102,6 @@
       font-size: 4.5rem;
     }
 
-    .emoji {
-      display: none;
-      padding: 1rem;
-    }
-
-    .emoji span {
-      font-size: 4rem;
-      padding: 0 .5rem;
-    }
-
     @media all and (max-width: 768px) {
       h1 {
         font-size: calc(1.5rem * var(--smaller));
@@ -130,6 +120,7 @@
 
 <body>
   <div class="container">
+    <img src="./typer.png" alt="typer" width="768">
     <h1 id="headline">Kiedy Adam odzyska prawko</h1>
     <div id="countdown">
       <ul>
