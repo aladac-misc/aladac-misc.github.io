@@ -7,7 +7,13 @@
   <title>Kiedy Prawko?</title>
   <script>
     (function () {
-      const second = 1000,
+      const days = {
+        1: '08/18/',
+        2: '07/03/'
+      }
+      const arr = [1,2]
+      arr.forEach((number) =>{
+        const second = 1000,
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
@@ -17,7 +23,7 @@
         mm = String(today.getMonth() + 1).padStart(2, "0"),
         yyyy = today.getFullYear(),
         nextYear = yyyy + 1,
-        dayMonth = "08/18/",
+        dayMonth = days[number],
         birthday = dayMonth + yyyy;
 
       today = mm + "/" + dd + "/" + yyyy;
@@ -31,10 +37,10 @@
           const now = new Date().getTime(),
             distance = countDown - now;
 
-          document.getElementById("days").innerText = Math.floor(distance / (day)),
-            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+          document.getElementById(`days-${number}`).innerText = Math.floor(distance / (day)),
+            document.getElementById(`hours-${number}`).innerText = Math.floor((distance % (day)) / (hour)),
+            document.getElementById(`minutes-${number}`).innerText = Math.floor((distance % (hour)) / (minute)),
+            document.getElementById(`seconds-${number}`).innerText = Math.floor((distance % (minute)) / second);
 
           if (distance < 0) {
             document.getElementById("headline").innerText = "Jest!";
@@ -43,6 +49,7 @@
             clearInterval(x);
           }
         }, 0)
+      })
     }());
   </script>
   <style>
@@ -103,6 +110,10 @@
       font-size: 4.5rem;
     }
 
+    #headline-2, #countdown-2 {
+      color: gray;
+    }
+
     @media all and (max-width: 768px) {
       h1 {
         font-size: calc(1.5rem * var(--smaller));
@@ -127,13 +138,22 @@
 <body>
   <div class="container">
     <img src="./typer.png" alt="typer" width="768">
-    <h1 id="headline">Kiedy Adam odzyska prawko</h1>
-    <div id="countdown">
+    <h1 id="headline-1">Kiedy Adam odzyska prawko</h1>
+    <div id="countdown-1">
       <ul>
-        <li><span id="days"></span>Dni</li>
-        <li><span id="hours"></span>Godzin</li>
-        <li><span id="minutes"></span>Minut</li>
-        <li><span id="seconds"></span>Sekund</li>
+        <li><span id="days-1"></span>Dni</li>
+        <li><span id="hours-1"></span>Godzin</li>
+        <li><span id="minutes-1"></span>Minut</li>
+        <li><span id="seconds-1"></span>Sekund</li>
+      </ul>
+    </div>
+    <h1 id="headline-2">Tor Modlin</h1>
+    <div id="countdown-2">
+      <ul>
+        <li><span id="days-2"></span>Dni</li>
+        <li><span id="hours-2"></span>Godzin</li>
+        <li><span id="minutes-2"></span>Minut</li>
+        <li><span id="seconds-2"></span>Sekund</li>
       </ul>
     </div>
   </div>
